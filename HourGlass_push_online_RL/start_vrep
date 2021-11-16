@@ -1,0 +1,35 @@
+################################################################################
+################################################################################
+#HOURGLASS_PUSH is a set of programs related to the paper "An Efficient Image-to-Image
+#Translation HourGlass-based Architecture for Object Pushing Policy Learning",
+#presented at IROS 2021.
+#
+#Copyright (c) 2020 Idiap Research Institute, http://www.idiap.ch/
+#Written by Marco Ewerton <marco.ewerton@idiap.ch>
+#
+#This file is part of HOURGLASS_PUSH.
+#
+#HOURGLASS_PUSH is free software: you can redistribute it and/or modify
+#it under the terms of the GNU General Public License version 3 as
+#published by the Free Software Foundation.
+#
+#HOURGLASS_PUSH is distributed in the hope that it will be useful,
+#but WITHOUT ANY WARRANTY; without even the implied warranty of
+#MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+#GNU General Public License for more details.
+#
+#You should have received a copy of the GNU General Public License
+#along with HOURGLASS_PUSH. If not, see <http://www.gnu.org/licenses/>.
+################################################################################
+
+#!/bin/bash
+
+read -p "port: " port 
+
+input="/scratch/mewerton/Idiap_2019/V-REP_PRO_EDU_V3_6_0_Ubuntu16_04/remoteApiConnections.txt"
+
+sed -i "s/portIndex1_port             = [0-9]\+/portIndex1_port             = $port/g" $input
+
+cd /scratch/mewerton/Idiap_2019/V-REP_PRO_EDU_V3_6_0_Ubuntu16_04/
+
+./vrep.sh
